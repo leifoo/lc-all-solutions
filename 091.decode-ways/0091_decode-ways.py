@@ -6,15 +6,22 @@ class Solution(object):
 
         length = len(s)
 
-        dp = [1 for i in range(length + 1)]
+        dp = [1 for i in range(length+1)]
+        
+        if int(s[0]) == 0:
+            dp[1] = 0
 
         for i in range(1, length):
+            det1 = 1
+            if int(s[i]) == 0:
+                det1 = 0
+                
             num = int(s[i-1]) * 10 + int(s[i])
-            det = 0
-            if 0 < num < 27:
-                det = 1
+            det2 = 0
+            if 10 <= num <= 26:
+                det2 = 1
 
-            dp[i+1] = dp[i] + det * dp[i-1]
+            dp[i+1] = det1 * dp[i] + det2 * dp[i-1]
 
         return dp[-1]
 
