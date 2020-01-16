@@ -11,6 +11,7 @@ class Solution(object):
             [dfs(i + 1, path + [nums[i]]) for i in range(index, len(nums))]
 
         ans = []
+        nums = sorted(nums)
         dfs()
         return ans
 
