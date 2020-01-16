@@ -1,9 +1,6 @@
 class Solution():
     def grayCode(self, n: int):
 
-        if n < 1:
-            return []
-
         ans = [0]
         for i in range(n):
             tmp = 2 ** i
